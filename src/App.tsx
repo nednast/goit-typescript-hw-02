@@ -40,7 +40,7 @@ function App() {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const { results, total_pages } = (await apiSearch(query, page)) as Api;
+        const { results, total_pages } = await apiSearch<Api>(query, page);
         if (results.length === 0) {
           return toast.error("This didn't work.");
         }
